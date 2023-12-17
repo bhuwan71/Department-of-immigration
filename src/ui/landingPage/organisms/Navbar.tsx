@@ -5,7 +5,6 @@ import {
   Collapse,
   Flex,
   IconButton,
-  Image,
   Link,
   Popover,
   PopoverContent,
@@ -17,7 +16,6 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react'
-import { image } from '@config/constant/image'
 import { userLabel } from '@data/localization/landingPage/navbar'
 import useLang from '@hooks/useLang'
 import LanguageToggle from '@ui/common/molecules/LanguageToggle'
@@ -56,7 +54,7 @@ const NavBar = () => {
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
           >
-            <Image src={image?.ebpsLogo} width={{ md: '175px', base: '150px' }}></Image>
+            {/* <Image src={image?.ebpsLogo} width={{ md: '175px', base: '150px' }}></Image> */}
           </Text>
         </Flex>
         <Flex
