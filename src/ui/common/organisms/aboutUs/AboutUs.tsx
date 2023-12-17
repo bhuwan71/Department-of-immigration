@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, Image } from '@chakra-ui/react'
 import useLang from '@hooks/useLang'
 
 const AboutUs = ({ data }: { data: any }) => {
@@ -8,6 +8,7 @@ const AboutUs = ({ data }: { data: any }) => {
     <Box>
       <Heading as={'h3'}>{lang == 'en' ? data?.title : data?.nepaliTitle}</Heading>
       <Box dangerouslySetInnerHTML={{ __html: data?.description }} />
+      {data?.file && <Image src={data?.path} pt={8} />}
     </Box>
   )
 }
