@@ -1,7 +1,7 @@
-import { Box, Heading, Spinner } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import useLang from '@hooks/useLang'
 
-const MissionAndVision = ({ data }: { data: any }) => {
+const AboutUs = ({ data }: { data: any }) => {
   const { lang } = useLang()
 
   return (
@@ -12,4 +12,4 @@ const MissionAndVision = ({ data }: { data: any }) => {
   )
 }
 
-export default MissionAndVision
+export default AboutUs

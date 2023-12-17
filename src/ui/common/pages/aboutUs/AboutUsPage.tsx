@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react'
 import Notice from '../../organisms/Notice'
-import MissionAndVision from '../../organisms/MissionAndVision'
+import MissionAndVision from '../../organisms/aboutUs/AboutUs'
 import PageHeader from '../../molecules/PageHeader'
 import apiInstance from '@api/api'
 import { useEffect, useState } from 'react'
