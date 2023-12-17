@@ -29,7 +29,7 @@ const Notice = () => {
   return (
     <Box maxWidth={'275px'}>
       <Flex flexDir={'column'} gap={'32px'}>
-        <Heading as='h2' py={'20px'} borderBottom={'1px'}>
+        <Heading as='h2' pb={'20px'} borderBottom={'1px'}>
           Notice
         </Heading>
         <Flex flexDir={'column'} gap={'32px'}>

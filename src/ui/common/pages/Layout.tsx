@@ -4,7 +4,7 @@ import Notice from '../organisms/Notice'
 
 const Layout = () => {
   return (
-    <Flex gap={40}>
+    <Flex maxWidth={'1920px'} gap={40}>
       <LayoutTable />
       <Notice />
     </Flex>

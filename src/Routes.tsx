@@ -19,6 +19,7 @@ const ManageAdmin = LazyLoading(lazy(() => import('@ui/admin/pages/setting/Manag
 import LazyLoading from 'LazyLoading'
 import { IRoute } from '@interface/global.interface'
 import Layout from '@ui/common/pages/Layout'
+import MissionAndVisionPage from '@ui/common/pages/MissionAndVisionPage'
 
 export const UserRoute: IRoute[] = [
   {
@@ -32,6 +33,10 @@ export const UserRoute: IRoute[] = [
       {
         path: 'layout',
         element: <Layout />,
+      },
+      {
+        path: 'mission-and-vision',
+        element: <MissionAndVisionPage />,
       },
       {
         path: '*',
