@@ -1,4 +1,6 @@
 import { lazy } from 'react'
+import LazyLoading from 'LazyLoading'
+import { IRoute } from '@interface/global.interface'
 
 //  landing page
 const LandingPageTemplate = LazyLoading(lazy(() => import('@ui/landingPage/templates/LandingPage.template')))
@@ -16,10 +18,8 @@ const AdminTemplate = LazyLoading(lazy(() => import('@ui/admin/templates/Dashboa
 const OfficeSetup = LazyLoading(lazy(() => import('@ui/admin/pages/setup/OfficeSetup')))
 const ManageAdmin = LazyLoading(lazy(() => import('@ui/admin/pages/setting/ManageAdmin')))
 
-import LazyLoading from 'LazyLoading'
-import { IRoute } from '@interface/global.interface'
 import Layout from '@ui/common/pages/Layout'
-import MissionAndVisionPage from '@ui/common/pages/MissionAndVisionPage'
+import AboutUsPage from '@ui/common/pages/aboutUs/AboutUsPage'
 
 export const UserRoute: IRoute[] = [
   {
@@ -35,8 +35,8 @@ export const UserRoute: IRoute[] = [
         element: <Layout />,
       },
       {
-        path: 'mission-and-vision',
-        element: <MissionAndVisionPage />,
+        path: 'aboutus/:id',
+        element: <AboutUsPage />,
       },
       {
         path: '*',
