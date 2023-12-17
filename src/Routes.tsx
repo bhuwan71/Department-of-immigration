@@ -15,7 +15,6 @@ const AdminLogin = LazyLoading(lazy(() => import('@ui/admin/pages/auth/Login')))
 const AdminTemplate = LazyLoading(lazy(() => import('@ui/admin/templates/Dashboard.template')))
 const OfficeSetup = LazyLoading(lazy(() => import('@ui/admin/pages/setup/OfficeSetup')))
 const ManageAdmin = LazyLoading(lazy(() => import('@ui/admin/pages/setting/ManageAdmin')))
-const BuldingCategory = LazyLoading(lazy(() => import('@ui/admin/pages/setup/BuldingCategory')))
 
 import LazyLoading from 'LazyLoading'
 import { IRoute } from '@interface/global.interface'
@@ -113,10 +112,6 @@ export const AdminDashboardRoute: IRoute[] = [
       {
         path: 'setup/office-setup',
         element: <OfficeSetup />,
-      },
-      {
-        path: 'setup/building-category',
-        element: <BuldingCategory />,
       },
       {
         path: 'setup/manage-admin',

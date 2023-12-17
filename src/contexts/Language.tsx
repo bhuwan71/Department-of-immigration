@@ -21,12 +21,12 @@ export const LanguageContext = createContext<{
 const LanguageProvider = ({ children }: LanguageProviderProps) => {
   // Initialize the language state with a default value from local storage or 'en'.
   const [language, setLanguage] = useState<LanguageEnum>(
-    (localStorage.getItem('ebps__lang') as LanguageEnum) || LanguageEnum.en
+    (localStorage.getItem('immigration__lang') as LanguageEnum) || LanguageEnum.en
   )
 
   // Update local storage whenever the language state changes.
   useEffect(() => {
-    localStorage.setItem('ebps__lang', language)
+    localStorage.setItem('immigration__lang', language)
   }, [language])
 
   return (

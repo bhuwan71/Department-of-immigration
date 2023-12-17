@@ -21,10 +21,10 @@ export const AuthContext = createContext<AuthType>({
 // A component to provide and manage authentication-related state.
 const AuthProvider = ({ children }: AuthProviderProps) => {
   // Retrieve user and rememberMe data from local storage, if available.
-  const storedUserData = localStorage.getItem('ebps__user')
+  const storedUserData = localStorage.getItem('immigration__user')
   const initialUser: string = storedUserData ? (JSON.parse(storedUserData) as string) : ''
 
-  const storedRememberMeData = localStorage.getItem('ebps__rememberMe')
+  const storedRememberMeData = localStorage.getItem('immigration__rememberMe')
   const initialRememberMe: string = storedRememberMeData ? (JSON.parse(storedRememberMeData) as string) : ''
 
   // Initialize user and rememberMe states with the retrieved data or empty strings.
@@ -33,8 +33,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
   // Update local storage whenever the user or rememberMe state changes.
   useEffect(() => {
-    localStorage.setItem('ebps__rememberMe', JSON.stringify(rememberMe))
-    localStorage.setItem('ebps__user', JSON.stringify(user))
+    localStorage.setItem('immigration__rememberMe', JSON.stringify(rememberMe))
+    localStorage.setItem('immigration__user', JSON.stringify(user))
   }, [user, rememberMe])
 
   return (

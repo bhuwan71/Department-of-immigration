@@ -5,19 +5,14 @@ import useWindowDimensions from '@hooks/useWindowDimension'
 import SidebarItem from '@ui/common/molecules/SidebarItem'
 import { Colors } from '@utils/Colors'
 import { useEffect, useMemo, useState } from 'react'
-import { AiOutlineSetting, AiOutlineUnlock } from 'react-icons/ai'
-import { BiCategoryAlt, BiImage, BiNews, BiSearchAlt } from 'react-icons/bi'
-import { MdOutlineDashboardCustomize, MdOutlinePhotoAlbum, MdOutlineSource } from 'react-icons/md'
+import { AiOutlineSetting } from 'react-icons/ai'
+import {BiSearchAlt } from 'react-icons/bi'
+import { MdOutlineDashboardCustomize } from 'react-icons/md'
 import { TfiMenu } from 'react-icons/tfi'
 import { useLocation } from 'react-router-dom'
 import { officeInfo } from '@config/constant/office'
 import { ISidebar } from '@interface/global.interface'
-import { FiUsers } from 'react-icons/fi'
-import { TbArmchair2, TbCarouselHorizontal } from 'react-icons/tb'
-import { BsBuildings, BsCalendar2Date, BsChatSquareText } from 'react-icons/bs'
-import { HiOutlineOfficeBuilding } from 'react-icons/hi'
-import { VscFeedback } from 'react-icons/vsc'
-import { Role } from '@graphql/schema/graphql'
+import { BsBuildings } from 'react-icons/bs'
 
 /**
  * AdminSidebar component for navigation and user interface controls.
@@ -33,22 +28,6 @@ const AdminSidebar = () => {
       icon: <MdOutlineDashboardCustomize />,
     },
     {
-      title: sidebarLabel?.fiscalYear,
-      link: '/admin-dashboard/fiscal-year',
-      icon: <MdOutlineDashboardCustomize />,
-    },
-    {
-      title: sidebarLabel?.wardSetup,
-      link: '/admin-dashboard/ward-setup',
-      icon: <MdOutlineDashboardCustomize />,
-    },
-    {
-      title: sidebarLabel?.userList,
-      link: '/admin-dashboard/user-list',
-      icon: <MdOutlineDashboardCustomize />,
-    },
-
-    {
       title: sidebarLabel?.setup,
       link: '#',
       icon: <AiOutlineSetting />,
@@ -59,177 +38,51 @@ const AdminSidebar = () => {
           link: '/admin-dashboard/setup/office-setup',
           icon: <BsBuildings />,
         },
-        {
-          title: sidebarLabel?.buildingCategory,
-          link: '/admin-dashboard/setup/building-category',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.buildingType,
-          link: '/admin-dashboard/setup/building-type',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.buildingPurpose,
-          link: '/admin-dashboard/setup/building-purpose',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.buildingTaxCategory,
-          link: '/admin-dashboard/setup/building-tax-category',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.buildingTaxRate,
-          link: '/admin-dashboard/setup/building-tax-rate',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.floorType,
-          link: '/admin-dashboard/setup/floor-type',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.mudType,
-          link: '/admin-dashboard/setup/mud-type',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.landScapeCategory,
-          link: '/admin-dashboard/setup/building-categoy',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.landScapeType,
-          link: '/admin-dashboard/setup/buildng-category',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.landScapeName,
-          link: '/admin-dashboard/setup/building-cagory',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.landUseType,
-          link: '/admin-dashboard/setup/building-category',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.landOwnerType,
-          link: '/admin-dashboard/setup/building-caty',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.consultingForm,
-          link: '/admin-dashboard/setup/building-cagory',
-          icon: <BsBuildings />,
-        },
-        {
-          title: sidebarLabel?.houseOwnerType,
-          link: '/admin-dashboard/setup/house-owner-type',
-          icon: <BsBuildings />,
-        },
-
-        // {
-        //   title: sidebarLabel?.fiscalYear,
-        //   link: '/admin-dashboard/setup/fiscal-year',
-        //   icon: <BsCalendar2Date />,
-        // },
-        // {
-        //   title: sidebarLabel?.department,
-        //   link: '/admin-dashboard/setup/department',
-        //   icon: <HiOutlineOfficeBuilding />,
-        // },
-        // {
-        //   title: sidebarLabel?.designation,
-        //   link: '/admin-dashboard/setup/designation',
-        //   icon: <TbArmchair2 />,
-        // },
-        // {
-        //   title: sidebarLabel?.official,
-        //   link: '/admin-dashboard/setup/official',
-        //   icon: <FiUsers />,
-        // },
-        // {
-        //   title: sidebarLabel?.employee,
-        //   link: '/admin-dashboard/setup/employee',
-        //   icon: <FiUsers />,
-        // },
-        // {
-        //   title: sidebarLabel?.admin,
-        //   link: '/admin-dashboard/setup/admin',
-        //   icon: <FiUsers />,
-        // },
-        // {
-        //   title: sidebarLabel?.carousel,
-        //   link: '/admin-dashboard/setup/carousel',
-        //   icon: <TbCarouselHorizontal />,
-        // },
-        // {
-        //   title: sidebarLabel?.faq,
-        //   link: '/admin-dashboard/setup/faq',
-        //   icon: <BsChatSquareText />,
-        // },
-        // {
-        //   title: sidebarLabel?.resources,
-        //   link: '/admin-dashboard/setup/resources',
-        //   icon: <MdOutlineSource />,
-        // },
       ],
     },
-    {
-      title: sidebarLabel?.designDataSetup,
-      link: '#',
-      icon: <BiNews />,
-      openSubMenu: true,
-      subMenu: [
-        {
-          title: sidebarLabel?.buildingByLaw,
-          link: '/admin-dashboard/building-by-law',
-          icon: <BiCategoryAlt />,
-        },
-        {
-          title: sidebarLabel?.architecturalDesign,
-          link: '/admin-dashboard/news-events-category',
-          icon: <BiCategoryAlt />,
-        },
-        {
-          title: sidebarLabel?.structuralDesign,
-          link: '/admin-dashboard/news-events-category',
-          icon: <BiCategoryAlt />,
-        },
-        {
-          title: sidebarLabel?.technicalReportData,
-          link: '/admin-dashboard/news-events-category',
-          icon: <BiCategoryAlt />,
-        },
-        {
-          title: sidebarLabel?.technicalLevel1ReportData,
-          link: '/admin-dashboard/news-events-category',
-          icon: <BiCategoryAlt />,
-        },
-        {
-          title: sidebarLabel?.electricalDesign,
-          link: '/admin-dashboard/news-events-category',
-          icon: <BiCategoryAlt />,
-        },
-        {
-          title: sidebarLabel?.sanitaryDesign,
-          link: '/admin-dashboard/news-events-category',
-          icon: <BiCategoryAlt />,
-        },
-      ],
-    },
-    {
-      title: sidebarLabel?.applicationList,
-      link: '/admin-dashboard/application-list',
-      icon: <BiImage />,
-    },
-    {
-      title: sidebarLabel?.report,
-      link: '/admin-dashboard/report',
-      icon: <VscFeedback />,
-    },
+    // {
+    //   title: sidebarLabel?.designDataSetup,
+    //   link: '#',
+    //   icon: <BiNews />,
+    //   openSubMenu: true,
+    //   subMenu: [
+    //     {
+    //       title: sidebarLabel?.buildingByLaw,
+    //       link: '/admin-dashboard/building-by-law',
+    //       icon: <BiCategoryAlt />,
+    //     },
+    //     {
+    //       title: sidebarLabel?.architecturalDesign,
+    //       link: '/admin-dashboard/news-events-category',
+    //       icon: <BiCategoryAlt />,
+    //     },
+    //     {
+    //       title: sidebarLabel?.structuralDesign,
+    //       link: '/admin-dashboard/news-events-category',
+    //       icon: <BiCategoryAlt />,
+    //     },
+    //     {
+    //       title: sidebarLabel?.technicalReportData,
+    //       link: '/admin-dashboard/news-events-category',
+    //       icon: <BiCategoryAlt />,
+    //     },
+    //     {
+    //       title: sidebarLabel?.technicalLevel1ReportData,
+    //       link: '/admin-dashboard/news-events-category',
+    //       icon: <BiCategoryAlt />,
+    //     },
+    //     {
+    //       title: sidebarLabel?.electricalDesign,
+    //       link: '/admin-dashboard/news-events-category',
+    //       icon: <BiCategoryAlt />,
+    //     },
+    //     {
+    //       title: sidebarLabel?.sanitaryDesign,
+    //       link: '/admin-dashboard/news-events-category',
+    //       icon: <BiCategoryAlt />,
+    //     },
+    //   ],
+    // },
   ]
   const { width } = useWindowDimensions()
   const [minimize, setMinimize] = useState(sessionStorage.getItem('sidebar') === 'true')
