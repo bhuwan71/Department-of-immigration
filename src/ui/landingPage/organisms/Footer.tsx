@@ -1,9 +1,6 @@
 import {
   Box,
-  Button,
   Center,
-  chakra,
-  Divider,
   Flex,
   Grid,
   GridItem,
@@ -11,51 +8,14 @@ import {
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
 } from '@chakra-ui/react'
 import { officeInfo } from '@config/constant/office'
-import { footerLabel } from '@data/localization/landingPage/footer'
-import { convertToDevanagari } from '@functions/digitConverter'
 import useLang from '@hooks/useLang'
-import { Link as ReactLink } from 'react-router-dom'
-import { type ReactNode } from 'react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
-import { AiOutlineUserSwitch } from 'react-icons/ai'
+import { FaTwitter } from 'react-icons/fa'
 import { FaPhoneAlt } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import { FaFacebook } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
-const ListHeader = ({ children }: { children: ReactNode }) => {
-  return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
-      {children}
-    </Text>
-  )
-}
-
-const SocialButton = ({ children, label, href }: { children: ReactNode; label: string; href: string }) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  )
-}
 
 export default function LargeWithAppLinksAndSocial() {
   const { lang } = useLang()
@@ -65,9 +25,8 @@ export default function LargeWithAppLinksAndSocial() {
       <Box
         bg={useColorModeValue('#343A40', '#343A40')}
         color={useColorModeValue('white', 'white')}
-        position='relative'
         paddingX={10}
-
+        height={['auto', 'auto', '70vh']}
       >
         <Grid
           templateColumns={{

@@ -5,6 +5,7 @@ import {
   Collapse,
   Flex,
   IconButton,
+  Image,
   Link,
   Popover,
   PopoverContent,
@@ -22,68 +23,109 @@ import LanguageToggle from '@ui/common/molecules/LanguageToggle'
 import { AiOutlineUserSwitch } from 'react-icons/ai'
 import { Link as ReactLink } from 'react-router-dom'
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
+import logo from "../../../../favicon.svg"
 
 const NavBar = () => {
   const { isOpen, onToggle } = useDisclosure()
-  const { colorMode, toggleColorMode } = useColorMode()
-
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box>
-      <Flex
-        bg={useColorModeValue('gray.50', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
-        minH={'60px'}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}
+      <Box
+        position="relative"
+        bgImage="url('https://wallpapers.com/images/hd/beautiful-mountain-pictures-wfvd4x42htesrnyp.jpg')"
+        bgSize="cover"
+        bgPosition="center"
       >
-        <Flex gap='4' alignItems={'center'}>
-          <Flex flex={{ base: 1, md: 'auto' }} ml={{ base: -2 }} display={{ base: 'flex', lg: 'none' }}>
-            <IconButton
-              onClick={onToggle}
-              icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
-              variant={'ghost'}
-              aria-label={'Toggle Navigation'}
-            />
-          </Flex>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}
-          >
-            {/* <Image src={image?.ebpsLogo} width={{ md: '175px', base: '150px' }}></Image> */}
-          </Text>
-        </Flex>
+        <Box
+          position="absolute"
+          top={0}
+          right={0}
+          bottom={0}
+          left={0}
+          backgroundColor="rgba(275, 355, 255, 0.7)"
+        />
         <Flex
-          flex={{ base: 1 }}
-          alignItems={{
-            base: 'center',
-            md: 'center',
-          }}
-          justify={{ base: 'center', lg: 'start' }}
+          minH={'140px'}
+          borderBottom={1}
+          borderStyle={'solid'}
+          borderColor={useColorModeValue('gray.200', 'gray.900')}
+          align={'center'}
         >
-          <Flex display={{ base: 'none', lg: 'flex' }} ml={10}>
-            <DesktopNav />
+          <Flex gap='4' alignItems={'center'}>
+            <Flex
+              flex={{ base: 1, md: 'auto' }}
+              ml={{ base: -2 }}
+              display={{ base: 'flex', lg: 'none' }}
+            >
+              <IconButton
+                icon={colorMode === 'light' ? <HamburgerIcon w={5} h={5} /> : <CloseIcon w={3} h={3} />}
+                onClick={toggleColorMode}
+                variant={'ghost'}
+                aria-label={'Toggle Navigation'}
+              />
+            </Flex>
+
+            <Box
+              zIndex={1}
+              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+              fontFamily={'heading'}
+              paddingX="10px"
+              color={"blue"}
+              display="flex"
+              alignItems="center"
+              flexWrap="wrap"
+            >
+              <Image
+                src={logo}
+                alt="Logo"
+                maxW={{ base: '80%', md: 'auto' }}
+                maxH={{ base: 'auto', md: '100px' }}
+              />
+              <Box color="red" marginLeft={{ base: 0, md: '20px' }}>
+                <Text fontSize={14}>Government of Nepal</Text>
+                <Text fontSize={24}>Ministry of Home Affairs</Text>
+                <Text fontSize={28}>Department of Immigration</Text>
+              </Box>
+            </Box>
+
           </Flex>
-        </Flex>
-
-        <Stack flex={{ base: 1, lg: 0 }} justify={'flex-end'} direction={'row'} spacing={6} alignItems={'center'}>
-          <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}</Button>
-          <LanguageToggle />
-
-          <Box
-            display={{
-              md: 'flex',
-              base: 'none',
+          <Flex
+            flex={{ base: 1 }}
+            alignItems={{
+              base: 'center',
+              md: 'center',
             }}
+            justify={{ base: 'center', lg: 'start' }}
           >
-            <LoginSignUp />
-          </Box>
-        </Stack>
-      </Flex>
+            <Flex display={{ base: 'none', lg: 'flex' }} ml={10}>
+              <DesktopNav />
+            </Flex>
+          </Flex>
+
+          <Stack
+            flex={{ base: 1, lg: 0 }}
+            justify={'flex-end'}
+            direction={'row'}
+            spacing={6}
+            alignItems={'center'}
+          >
+            <Button onClick={toggleColorMode}>
+              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </Button>
+            <LanguageToggle />
+
+            <Box
+              display={{
+                md: 'flex',
+                base: 'none',
+              }}
+            >
+              <LoginSignUp />
+            </Box>
+          </Stack>
+        </Flex>
+      </Box>
+
 
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
@@ -135,7 +177,7 @@ const DesktopNav = () => {
 
   return (
     <Stack direction={'row'} spacing={4}>
-      {navItems.map((navItem, index) => (
+      {/* {navItems.map((navItem, index) => (
         <Box key={index}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
@@ -166,7 +208,7 @@ const DesktopNav = () => {
             )}
           </Popover>
         </Box>
-      ))}
+      ))} */}
     </Stack>
   )
 }
