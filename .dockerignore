@@ -1,0 +1,12 @@
+node_modules
+pnpm-lock.yaml
+yark.lock
+npm.lock 
+schema.gql
+build
+yarn-error.log
+.log
+log
+yarn.lock
+package-lock.json
+postgres-data
