@@ -19,6 +19,7 @@ const BuldingCategory = LazyLoading(lazy(() => import('@ui/admin/pages/setup/Bul
 
 import LazyLoading from 'LazyLoading'
 import { IRoute } from '@interface/global.interface'
+import Layout from '@ui/common/pages/Layout'
 
 export const UserRoute: IRoute[] = [
   {
@@ -28,6 +29,10 @@ export const UserRoute: IRoute[] = [
       {
         path: '',
         element: <LandingPage />,
+      },
+      {
+        path: 'layout',
+        element: <Layout />,
       },
       {
         path: '*',
