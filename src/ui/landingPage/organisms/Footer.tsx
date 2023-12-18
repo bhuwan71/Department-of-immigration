@@ -1,192 +1,310 @@
 import {
   Box,
-  Button,
   Center,
-  chakra,
   Flex,
   Grid,
   GridItem,
-  Image,
   Link,
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
 } from '@chakra-ui/react'
-import { image } from '@config/constant/image'
 import { officeInfo } from '@config/constant/office'
-import { footerLabel } from '@data/localization/landingPage/footer'
-import { convertToDevanagari } from '@functions/digitConverter'
 import useLang from '@hooks/useLang'
-import { Link as ReactLink } from 'react-router-dom'
-import { type ReactNode } from 'react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
-import { AiOutlineUserSwitch } from 'react-icons/ai'
-
-const ListHeader = ({ children }: { children: ReactNode }) => {
-  return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
-      {children}
-    </Text>
-  )
-}
-
-const SocialButton = ({ children, label, href }: { children: ReactNode; label: string; href: string }) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  )
-}
+import { FaTwitter } from 'react-icons/fa'
+import { FaPhoneAlt } from "react-icons/fa";
+import { CiMail } from "react-icons/ci";
+import { FaFacebook } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function LargeWithAppLinksAndSocial() {
   const { lang } = useLang()
 
   return (
-    <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}
-      position='relative'
-    >
-      <Grid
-        templateColumns={{
-          xl: 'repeat(5, 1fr)',
-          md: 'repeat(2, 1fr)',
-          base: '1fr',
-        }}
-        px='4'
-        py='6'
-        gap={6}
+    <>
+      <Box
+        bg={useColorModeValue('#343A40', '#343A40')}
+        color={useColorModeValue('white', 'white')}
+        paddingX={10}
+        height={['auto', 'auto', '70vh']}
       >
-        <GridItem rowSpan={2} colSpan={2}>
-          <Stack>
-            <Flex gap='4' direction={'column'}>
-              <Image src={image.ebpsLogo} width='175px' alt='logo' />
-              <Box>
-                <Text fontWeight={'600'} fontSize='18px'>
-                  {officeInfo?.companyName?.[lang]}
-                </Text>
-                <Text fontWeight={'600'} fontSize='15px'>
-                  {officeInfo?.companyAddress?.[lang]}
-                </Text>
-              </Box>
-            </Flex>
-            <Text pt='1' fontSize={'14px'}>
-              {officeInfo?.companyDescription?.[lang]}
-            </Text>
-          </Stack>
-        </GridItem>
-
-        <Stack align={'flex-start'}>
-          <ListHeader> {footerLabel?.quickLink?.[lang]}</ListHeader>
-          <Link href={'#'}>{footerLabel?.home?.[lang]}</Link>
-          <Link href={'#'}>{footerLabel?.aboutUs?.[lang]}</Link>
-          <Link href={'#'}>{footerLabel?.contactUs?.[lang]} </Link>
-          <Link href={'#'}>{footerLabel?.faq?.[lang]} </Link>
-          <Link href={'#'}>{footerLabel?.download?.[lang]} </Link>
-        </Stack>
-
-        <Stack align={'flex-start'}>
-          <ListHeader>{footerLabel?.importantLink?.[lang]} </ListHeader>
-          <Link href={'https://mofaga.gov.np/'}>{footerLabel?.ministryOfFederalAffairs?.[lang]} </Link>
-          <Link href={'http://www.moha.gov.np/'}>{footerLabel?.homeMinistry?.[lang]} </Link>
-          <Link href={'https://www.opmcm.gov.np/'}>{footerLabel?.primeMinisterAndCouncilOfMinisters?.[lang]} </Link>
-          <Link href={'https://www.npc.gov.np/np'}>{footerLabel?.nationalPlanningCommission?.[lang]} </Link>
-          <AdminLogin />
-        </Stack>
-
-        <Stack align={'flex-start'}>
-          <ListHeader> {footerLabel?.officeLocation?.[lang]}</ListHeader>
-          <Box>
-            <iframe
-              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.7916168574648!2d85.33502426159647!3d27.696720159975246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1922adf46107%3A0x14bad80620f24e14!2sCliff%20Byte!5e0!3m2!1sen!2snp!4v1693993748570!5m2!1sen!2snp'
-              width='100%'
-              height='150'
-              loading='lazy'
-              referrerPolicy='no-referrer-when-downgrade'
-            ></iframe>
-          </Box>
-        </Stack>
-      </Grid>
-
-      <Box pb={3}>
-        <Flex
-          align={'center'}
-          _before={{
-            content: '""',
-            borderBottom: '1px solid',
-            borderColor: useColorModeValue('gray.200', 'gray.700'),
-            flexGrow: 1,
-            mr: 8,
+        <Grid
+          templateColumns={{
+            xl: 'repeat(5, 1fr)',
+            md: 'repeat(2, 1fr)',
+            base: '1fr',
           }}
-          _after={{
-            content: '""',
-            borderBottom: '1px solid',
-            borderColor: useColorModeValue('gray.200', 'gray.700'),
-            flexGrow: 1,
-            ml: 8,
-          }}
+          px='4'
+          py='6'
+          gap={6}
         >
-          <Text fontSize={'sm'} textAlign={'center'}>
-            {footerLabel?.developedBy?.[lang]}
-          </Text>
-        </Flex>
-        <Center pt='5'>
-          <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Twitter'} href={'#'}>
-              <FaTwitter />
-            </SocialButton>
-            <SocialButton label={'YouTube'} href={'#'}>
-              <FaYoutube />
-            </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
-              <FaInstagram />
-            </SocialButton>
+          <GridItem rowSpan={2} colSpan={2}>
+            <Text fontSize='28px' >Contact Us </Text>
+            <hr></hr>
+            <Stack>
+              <Flex gap='4' direction={'column'}>
+                <Box>
+                  <Text fontWeight={'600'} fontSize='18px'>
+                    {officeInfo?.companyName?.[lang]}
+                  </Text>
+                  <Text>
+                    Kalikasthan, Kathmandu.
+                  </Text>
+                </Box>
+              </Flex>
+
+              <Flex gap='4' direction='column'>
+                <Flex gap='1' direction='row' align='center'>
+                  <FaPhoneAlt size={14} /> +977-01-4529659, 4429660
+                </Flex>
+                <Flex gap='1' direction='row' align='center'>
+                  <FaPhoneAlt size={14} /> +977-01-4529659, 4429660
+                </Flex>
+                <Flex gap='1' direction='row' align='center'>
+                  <CiMail size={14} /> info@immigration.gov.np
+                </Flex>
+
+                <Box>
+                  <Text fontSize='26px' >Follow Us on</Text>
+                  <Flex gap='4' paddingTop={2} direction='row'>
+                    <FaFacebook size={18} />
+                    <FaTwitter size={18} />
+                  </Flex>
+                </Box>
+              </Flex>
+              <Text pt='1' fontSize={'14px'}>
+                {officeInfo?.companyDescription?.[lang]}
+              </Text>
+            </Stack>
+          </GridItem>
+
+          <GridItem rowSpan={2} colSpan={2}>
+            <Text fontSize='28px' >Organization Links </Text>
+            <hr></hr>
+            <Stack>
+
+              <Flex gap='8' direction={'column'} paddingTop={5}>
+                <Box>
+                  <Link
+                    href='#'
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Office of the Prime Minister and Council of Ministers
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Ministry of Home Affairs
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Ministry of Education, Science and Technology
+                    </Flex>
+                  </Link>
+                  <Link
+
+                    fontSize='sm'
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Department of Consular Services
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Department of Foreign Employment
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Department of Tourism
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Department of Passports
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Financial Comptroller General Office
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Nepal Rastra Bank
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Nepal Rastra Bank
+                    </Flex>
+                  </Link>
+                  <Link
+                    href='#'
+                    _hover={{ color: 'blue.500' }}
+                    display='block'
+                  >
+                    <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                      <IoIosArrowForward size={14} />
+                      Nepalese Missions Abroad
+                    </Flex>
+                  </Link>
+                </Box>
+              </Flex>
+            </Stack>
+          </GridItem>
+
+
+
+          <Stack align={'flex-start'}>
+
+            <GridItem rowSpan={2} colSpan={2}>
+              <Text fontSize='28px' >Office Hours</Text>
+              <hr></hr>
+              <Stack>
+
+                <Flex gap='1' direction={'column'} paddingTop={5}>
+                  <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                    10:00 AM - 4:00 PM (Normal Working Days, Sunday to Thursday)
+                  </Flex>
+                  <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                    10:00 AM - 3:00 PM (Friday)
+                  </Flex>
+
+                  <Flex gap='2' fontSize={'12px'} direction='row' align='center'>
+                    Application Submission Hour: 10:30 AM - 2:30 PM
+                  </Flex>
+                </Flex>
+              </Stack>
+            </GridItem>
           </Stack>
-        </Center>
+        </Grid>
 
-        <Text pt={2} fontSize={'sm'} textAlign={'center'}>
-          {convertToDevanagari(new Date().getFullYear()?.toString(), lang)}&nbsp;
-          {officeInfo?.companyName?.[lang]}
-          &nbsp;
-          {footerLabel?.allRightReserved?.[lang]}
-        </Text>
+        <Box pb={3}>
+          <Flex
+            align={'center'}
+            _before={{
+              content: '""',
+              borderBottom: '1px solid',
+              borderColor: useColorModeValue('gray.200', 'gray.700'),
+              flexGrow: 1,
+              mr: 8,
+            }}
+            _after={{
+              content: '""',
+              borderBottom: '1px solid',
+              borderColor: useColorModeValue('gray.200', 'gray.700'),
+              flexGrow: 1,
+              ml: 8,
+            }}
+          >
+            <Text fontSize={'2xl'} textAlign={'center'}>
+              Immigration Network
+            </Text>
+          </Flex>
+          <Center pt='5' >
+            <Link href='#'>
+              <Flex direction='row' alignItems='center'>
+                <Text fontSize={9}>TIA</Text>
+                <Text mx='2'>|</Text>
+              </Flex>
+            </Link>
+            <Link href='#'>
+              <Flex direction='row' alignItems='center'>
+                <Text fontSize={9}>POKHARA</Text>
+                <Text mx='2'>|</Text>
+              </Flex>
+            </Link>
+            <Link href='#'>
+              <Flex direction='row' alignItems='center'>
+                <Text fontSize={9}>KAKARVITTA@NEPAL</Text>
+                <Text mx='2'>|</Text>
+              </Flex>
+            </Link>
+
+            <Link href='#'>
+              <Flex direction='row' alignItems='center'>
+                <Text fontSize={9}> BIRGUNJ</Text>
+                <Text mx='2'>|</Text>
+              </Flex>
+            </Link>
+
+            <Link href='#'>
+              <Flex direction='row' alignItems='center'>
+                <Text fontSize={9}> KODARI</Text>
+                <Text mx='2'>|</Text>
+              </Flex>
+            </Link>
+
+            <Link href='#'>
+              <Flex direction='row' alignItems='center'>
+                <Text fontSize={9}>BELAHIA </Text>
+              </Flex>
+            </Link>
+
+          </Center>
+
+        </Box>
+
       </Box>
-    </Box>
-  )
-}
+      <Flex justifyContent='space-between' color={"white"} padding={2} backgroundColor={"#114499"}>
+        <Text fontSize={9}>Last Updated : 2023-12-17 04:09:34 04:09:34</Text>
+        <Text fontSize={9}>
+          © All Rights Reserved to Department of Immigration</Text>
+        <Text fontSize={9}>Site Visited :</Text>
+      </Flex>
+    </>
 
-const AdminLogin = () => {
-  const { lang } = useLang()
-
-  return (
-    <Button
-      size='sm'
-      fontSize={'sm'}
-      fontWeight={500}
-      as={ReactLink}
-      colorScheme='telegram'
-      variant={'outline'}
-      to='auth/admin'
-    >
-      {footerLabel?.adminLogin?.[lang]}&nbsp;&nbsp;
-      <AiOutlineUserSwitch size={'14px'} />
-    </Button>
   )
 }

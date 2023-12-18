@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import EncryptDecrypt from '@functions/EncryptDecrypt'
-import { AdminLoginSchema } from '@graphql/schema/graphql'
 import useAuth from '@hooks/useAuth'
 import { Navigate, useLocation } from 'react-router-dom'
 
@@ -13,7 +12,7 @@ const AdminProtectedRoute: React.FC<AdminProtectedRouteProps> = ({ children }) =
 
   const { decrypt } = EncryptDecrypt
   const admin = decrypt(user) as string
-  const adminDetails = JSON.parse(admin || '{}') as AdminLoginSchema
+  const adminDetails = JSON.parse(admin || '{}')
 
   const location = useLocation()
 
