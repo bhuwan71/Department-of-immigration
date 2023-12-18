@@ -1,5 +1,3 @@
-import { Role } from '@graphql/schema/graphql'
-
 export const officeProfileFakeData = () => {
   return {
     officeName: 'पोखरा माहानगरपालिका - योजना , अनुगमन तथा सूचना प्रविधि महाशाखा',
@@ -19,7 +17,6 @@ export const adminFakeData = () => {
   return {
     email: 'wardsuperadmin@gov.np',
     password: 'Admin@123',
-    role: Role.WardAdmin,
     ward: 3775,
     details: {
       firstName: 'बिजय',
