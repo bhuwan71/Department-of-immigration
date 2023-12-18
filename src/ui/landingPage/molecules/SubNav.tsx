@@ -10,7 +10,7 @@ import {
     PopoverArrow,
     PopoverBody,
 } from '@chakra-ui/react';
-import { Text} from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { IoIosArrowDown } from "react-icons/io";
 const SubNav: React.FC = () => {
     return (
