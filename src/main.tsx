@@ -6,7 +6,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import ErrorBoundary from 'Error.Boundary.tsx'
 import App from 'App'
 import ContextProvider from './contexts'
-import "./index.css"
 
 const rootElement = document.getElementById('root') as HTMLElement
 
